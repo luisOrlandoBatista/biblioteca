@@ -7,6 +7,10 @@ biblioteca:
 logging:
   level:
     com.luiso.biblioteca: DEBUG   # tu código: todo el detalle
+    org.hibernate.SQL: DEBUG                 # muestra cada SQL que ejecuta Hibernate
+    org.hibernate.orm.jdbc.bind: TRACE       # muestra los valores de los parámetros
+  file:
+    name: logs/biblioteca.log
 
 springdoc:
   paths-to-match: /api/**   # documenta solo las rutas que empiezan por /api/

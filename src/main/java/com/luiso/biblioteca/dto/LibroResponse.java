@@ -1,12 +1,11 @@
 package com.luiso.biblioteca.dto;
 
-import com.luiso.biblioteca.model.Libro;
+import com.luiso.biblioteca.entity.Libro;
 
 public record LibroResponse(Long id, String titulo, String autor, int paginas) {
 
-    // Método "fábrica": convierte un Libro (modelo interno) en un LibroResponse (DTO).
-    // static: se llama sobre el tipo, sin crear objeto → LibroResponse.desde(libro)
+    // Convierte la entidad (interna) en el DTO (lo que ve el cliente)
     public static LibroResponse desde(Libro libro) {
-        return new LibroResponse(libro.id(), libro.titulo(), libro.autor(), libro.paginas());
+        return new LibroResponse(libro.getId(), libro.getTitulo(), libro.getAutor(), libro.getPaginas());
     }
 }

@@ -9,6 +9,10 @@ spring:
   docker:
     compose:
       lifecycle-management: start-only   # arranca PostgreSQL si hace falta, pero no lo para al cerrar
+  jpa:
+    hibernate:
+      ddl-auto: validate   # Hibernate comprueba que las entidades coinciden con las tablas
+    open-in-view: false    # buena práctica: lo explico abajo
 
 biblioteca:
   nombre: Biblioteca Central
