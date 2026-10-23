@@ -1,0 +1,18 @@
+server:
+  port: 9090
+
+biblioteca:
+  nombre: Biblioteca Central
+  bienvenida:
+    activa: false
+
+logging:
+  level:
+    root: WARN                    # todo lo demás: solo avisos y errores
+    com.luiso.biblioteca: INFO    # tu código: eventos importantes
+
+springdoc:
+  api-docs:
+    enabled: false      # desactiva /v3/api-docs
+  swagger-ui:
+    enabled: false      # desactiva la página de Swagger UI

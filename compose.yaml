@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:18                  # PostgreSQL 18. Fijamos la versión para que no cambie sola
+    container_name: biblioteca-postgres # nombre fácil de reconocer
+    environment:                        # configuración inicial de PostgreSQL
+      POSTGRES_DB: biblioteca           # base de datos que se crea al arrancar por primera vez
+      POSTGRES_USER: biblioteca         # usuario
+      POSTGRES_PASSWORD: biblioteca     # contraseña (solo para desarrollo)
+    ports:
+      - "5432:5432"                     # puerto de tu Mac : puerto del contenedor
+    volumes:
+      - postgres-data:/var/lib/postgresql   # los datos se guardan en el volumen
+
+volumes:
+  postgres-data:                        # Docker crea y gestiona este volumen

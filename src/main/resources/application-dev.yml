@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+biblioteca:
+  nombre: Biblioteca Central (DESARROLLO)
+
+logging:
+  level:
+    com.luiso.biblioteca: DEBUG   # tu código: todo el detalle
+
+springdoc:
+  paths-to-match: /api/**   # documenta solo las rutas que empiezan por /api/

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: biblioteca
+  profiles:
+    active: dev
+  sql:
+    init:
+      mode: always   # ejecuta schema.sql y data.sql en cada arranque
+  docker:
+    compose:
+      lifecycle-management: start-only   # arranca PostgreSQL si hace falta, pero no lo para al cerrar
+
+biblioteca:
+  nombre: Biblioteca Central
+  max-prestamos: 3
+  bienvenida:
+    activa: true
+
+springdoc:
+  paths-to-match: /api/**
