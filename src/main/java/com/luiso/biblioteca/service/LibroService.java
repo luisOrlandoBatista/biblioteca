@@ -1,10 +1,11 @@
 package com.luiso.biblioteca.service;
 
-import java.util.Comparator;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,29 +28,26 @@ public class LibroService {
         this.libroRepository = libroRepository;
     }
 
-    @Transactional(readOnly = true) // transacción de solo lectura (más eficiente)
+    @Transactional(readOnly = true)
     public PaginaResponse<LibroResponse> listar(String autor, int page, int size, String sort) {
-        List<Libro> libros = (autor == null)
-                ? libroRepository.findAll()
-                : libroRepository.findByAutorContaining(autor);
+        // 1. Construir la petición de página: número, tamaño y orden
+        Pageable pageable = PageRequest.of(page, size, crearOrden(sort));
 
-        List<LibroResponse> ordenados = libros.stream()
-                .sorted(crearComparador(sort))
-                .map(LibroResponse::desde)
-                .toList();
-
-        long totalElementos = ordenados.size();
-        int totalPaginas = (int) Math.ceil((double) totalElementos / size);
-
-        List<LibroResponse> contenido = ordenados.stream()
-                .skip((long) page * size)
-                .limit(size)
-                .toList();
+        // 2. La base de datos devuelve SOLO las filas de esta página
+        Page<Libro> pagina = (autor == null)
+                ? libroRepository.findAll(pageable)
+                : libroRepository.findByAutorContainingIgnoreCase(autor, pageable);
 
         log.debug("Página {} de tamaño {} ordenada por '{}': {} de {} libros",
-                page, size, sort, contenido.size(), totalElementos);
+                page, size, sort, pagina.getNumberOfElements(), pagina.getTotalElements());
 
-        return new PaginaResponse<>(contenido, page, size, totalElementos, totalPaginas);
+        // 3. Convertir Page<Libro> en nuestro DTO. La API responde igual que antes
+        return new PaginaResponse<>(
+                pagina.map(LibroResponse::desde).getContent(), // map: convierte cada Libro en LibroResponse
+                pagina.getNumber(),
+                pagina.getSize(),
+                pagina.getTotalElements(),
+                pagina.getTotalPages());
     }
 
     @Transactional(readOnly = true)
@@ -72,15 +70,16 @@ public class LibroService {
     @Transactional
     public LibroResponse actualizar(Long id, LibroRequest request) {
         Libro libro = obtenerLibro(id);
-        // ¡No llamamos a save()! Ver la explicación de "dirty checking" más abajo
-        libro.actualizar(request.titulo(), request.autor(), request.paginas());
+        libro.actualizar(request.titulo(), request.autor(), request.paginas()); // dirty checking
         log.info("Libro {} actualizado", id);
         return LibroResponse.desde(libro);
     }
 
     @Transactional
     public void eliminar(Long id) {
-        obtenerLibro(id);
+        if (!libroRepository.existsById(id)) {
+            throw new LibroNoEncontradoException(id);
+        }
         libroRepository.deleteById(id);
         log.info("Libro {} eliminado", id);
     }
@@ -94,19 +93,22 @@ public class LibroService {
                 .orElseThrow(() -> new LibroNoEncontradoException(id));
     }
 
-    private Comparator<Libro> crearComparador(String sort) {
+    // Convierte "titulo,desc" en un Sort de Spring Data.
+    // Sustituye al Comparator: ahora ordena la base de datos, no Java.
+    private Sort crearOrden(String sort) {
         String[] partes = sort.split(",");
         String campo = partes[0];
-        boolean descendente = partes.length > 1 && partes[1].equals("desc");
+        Sort.Direction direccion = (partes.length > 1 && partes[1].equals("desc"))
+                ? Sort.Direction.DESC
+                : Sort.Direction.ASC;
 
-        // Ahora con getters (getTitulo) en lugar de accesores de record (titulo)
-        Comparator<Libro> comparador = switch (campo) {
-            case "titulo"  -> Comparator.comparing(Libro::getTitulo, String.CASE_INSENSITIVE_ORDER);
-            case "autor"   -> Comparator.comparing(Libro::getAutor, String.CASE_INSENSITIVE_ORDER);
-            case "paginas" -> Comparator.comparingInt(Libro::getPaginas);
-            default        -> Comparator.comparing(Libro::getId);
-        };
+        Sort.Order orden = new Sort.Order(direccion, campo);
 
-        return descendente ? comparador.reversed() : comparador;
+        // ignoreCase() ordena sin distinguir mayúsculas → ORDER BY LOWER(titulo).
+        // Solo para textos: LOWER() sobre un número daría error en PostgreSQL.
+        if (campo.equals("titulo") || campo.equals("autor")) {
+            orden = orden.ignoreCase();
+        }
+        return Sort.by(orden);
     }
 }

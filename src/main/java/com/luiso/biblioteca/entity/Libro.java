@@ -1,10 +1,15 @@
 package com.luiso.biblioteca.entity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity                    // esta clase representa una tabla de la base de datos
@@ -24,6 +29,13 @@ public class Libro {
 
     @Column(nullable = false)
     private int paginas;
+
+    // Un libro → muchos préstamos.
+    // mappedBy = "libro": la relación ya está definida por el campo "libro" de Prestamo,
+    // que es el lado propietario (tiene la clave foránea). Este lado es solo "de lectura".
+    // @OneToMany ya es LAZY por defecto: los préstamos solo se cargan si se piden.
+    @OneToMany(mappedBy = "libro")
+    private List<Prestamo> prestamos = new ArrayList<>();
 
     // Constructor vacío OBLIGATORIO para JPA: Hibernate lo usa para crear el objeto
     // y después rellena los campos con los datos de la fila.
@@ -61,5 +73,11 @@ public class Libro {
 
     public int getPaginas() {
         return paginas;
+    }
+
+    // unmodifiableList: devuelve la lista en modo "solo lectura".
+    // Así nadie puede añadir o quitar préstamos desde fuera de forma descontrolada.
+    public List<Prestamo> getPrestamos() {
+        return Collections.unmodifiableList(prestamos);
     }
 }
