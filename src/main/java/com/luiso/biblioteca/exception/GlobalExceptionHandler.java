@@ -43,6 +43,23 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return problema;
     }
 
+    // 409 para TODAS las reglas de negocio que hereden de ConflictoNegocioException
+    @ExceptionHandler(ConflictoNegocioException.class)
+    public ProblemDetail manejarConflicto(ConflictoNegocioException ex) {
+        log.warn("Regla de negocio incumplida: {}", ex.getMessage());
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+        problema.setTitle("Operación no permitida");
+        return problema;
+    }
+
+    @ExceptionHandler(PrestamoNoEncontradoException.class)
+    public ProblemDetail manejarPrestamoNoEncontrado(PrestamoNoEncontradoException ex) {
+        log.warn("Préstamo no encontrado: {}", ex.getMessage());
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+        problema.setTitle("Préstamo no encontrado");
+        return problema;
+    }
+
     // 400: falla la validación de @Valid.
     // Este error ya lo gestiona la clase padre, así que SOBRESCRIBIMOS su método (@Override)
     // para añadir la lista de campos con error.

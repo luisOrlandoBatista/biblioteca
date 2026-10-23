@@ -9,7 +9,13 @@ import com.luiso.biblioteca.entity.Prestamo;
 
 public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
 
-    // JOIN FETCH: carga los préstamos Y sus libros en UNA sola consulta con JOIN
     @Query("SELECT p FROM Prestamo p JOIN FETCH p.libro ORDER BY p.id")
     List<Prestamo> findAllConLibro();
+
+    // ¿Tiene este libro algún préstamo sin devolver?
+    // "LibroId" navega por la relación: campo libro → su id
+    boolean existsByLibroIdAndFechaDevolucionIsNull(Long libroId);
+
+    // ¿Cuántos préstamos sin devolver tiene este socio?
+    long countBySocioAndFechaDevolucionIsNull(String socio);
 }

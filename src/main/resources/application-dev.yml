@@ -9,6 +9,7 @@ logging:
     com.luiso.biblioteca: DEBUG   # tu código: todo el detalle
     org.hibernate.SQL: DEBUG                 # muestra cada SQL que ejecuta Hibernate
     org.hibernate.orm.jdbc.bind: TRACE       # muestra los valores de los parámetros
+    org.springframework.orm.jpa.JpaTransactionManager: DEBUG   # muestra cuándo se abren y cierran transacciones
   file:
     name: logs/biblioteca.log
 
