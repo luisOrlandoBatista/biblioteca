@@ -1,5 +1,7 @@
--- ON CONFLICT (titulo) DO NOTHING: si ya existe un libro con ese título, no lo inserta.
--- Así, al reiniciar la aplicación, no se duplican los datos.
+-- Migración REPETIBLE (R__): se ejecuta después de las versionadas.
+-- Las sentencias son idempotentes (se pueden ejecutar varias veces sin duplicar datos),
+-- porque Flyway la volverá a ejecutar si algún día cambias este archivo.
+
 INSERT INTO libros (titulo, autor, paginas) VALUES
     ('Clean Code', 'Robert C. Martin', 464),
     ('Effective Java', 'Joshua Bloch', 412),
@@ -15,17 +17,15 @@ INSERT INTO libros (titulo, autor, paginas) VALUES
     ('Building Microservices', 'Sam Newman', 616)
 ON CONFLICT (titulo) DO NOTHING;
 
--- Inserta los préstamos solo si la tabla está vacía (para no duplicarlos en cada arranque).
--- Busca el id de cada libro por su título con un JOIN.
 INSERT INTO prestamos (libro_id, socio, fecha_prestamo, fecha_devolucion)
 SELECT l.id, v.socio, v.fecha_prestamo, v.fecha_devolucion
 FROM (VALUES
-    ('Effective Java',         'Ana García',    DATE '2026-09-01', DATE '2026-09-15'),
-    ('Effective Java',         'Pedro López',   DATE '2026-09-20', NULL),
-    ('Refactoring',            'Ana García',    DATE '2026-09-05', DATE '2026-09-25'),
-    ('Domain-Driven Design',   'Lucía Martín',  DATE '2026-10-01', NULL),
-    ('Building Microservices', 'Pedro López',   DATE '2026-10-03', NULL),
-    ('Refactoring',            'Carlos Ruiz',   DATE '2026-10-10', NULL)
+    ('Effective Java',         'Ana García',   DATE '2026-09-01', DATE '2026-09-15'),
+    ('Effective Java',         'Pedro López',  DATE '2026-09-20', NULL),
+    ('Refactoring',            'Ana García',   DATE '2026-09-05', DATE '2026-09-25'),
+    ('Domain-Driven Design',   'Lucía Martín', DATE '2026-10-01', NULL),
+    ('Building Microservices', 'Pedro López',  DATE '2026-10-03', NULL),
+    ('Refactoring',            'Carlos Ruiz',  DATE '2026-10-10', NULL)
 ) AS v(titulo, socio, fecha_prestamo, fecha_devolucion)
 JOIN libros l ON l.titulo = v.titulo
 WHERE NOT EXISTS (SELECT 1 FROM prestamos);

@@ -1,3 +1,8 @@
+spring:
+  flyway:
+    # En dev, además de la estructura, carga los datos de ejemplo
+    locations: classpath:db/migration,classpath:db/datos-dev
+
 server:
   port: 8080
 
@@ -6,12 +11,9 @@ biblioteca:
 
 logging:
   level:
-    com.luiso.biblioteca: DEBUG   # tu código: todo el detalle
-    org.hibernate.SQL: DEBUG                 # muestra cada SQL que ejecuta Hibernate
-    org.hibernate.orm.jdbc.bind: TRACE       # muestra los valores de los parámetros
-    org.springframework.orm.jpa.JpaTransactionManager: DEBUG   # muestra cuándo se abren y cierran transacciones
+    com.luiso.biblioteca: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.springframework.orm.jpa.JpaTransactionManager: DEBUG
   file:
     name: logs/biblioteca.log
-
-springdoc:
-  paths-to-match: /api/**   # documenta solo las rutas que empiezan por /api/

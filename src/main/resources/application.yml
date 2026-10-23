@@ -3,16 +3,13 @@ spring:
     name: biblioteca
   profiles:
     active: dev
-  sql:
-    init:
-      mode: always   # ejecuta schema.sql y data.sql en cada arranque
   docker:
     compose:
-      lifecycle-management: start-only   # arranca PostgreSQL si hace falta, pero no lo para al cerrar
+      lifecycle-management: start-only
   jpa:
     hibernate:
-      ddl-auto: validate   # Hibernate comprueba que las entidades coinciden con las tablas
-    open-in-view: false    # buena práctica: lo explico abajo
+      ddl-auto: validate
+    open-in-view: false
 
 biblioteca:
   nombre: Biblioteca Central

@@ -85,6 +85,18 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- Flyway, integrado con Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-flyway</artifactId>
+		</dependency>
+
+		<!-- Soporte de Flyway para PostgreSQL -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

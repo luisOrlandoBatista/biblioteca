@@ -30,6 +30,9 @@ public class Libro {
     @Column(nullable = false)
     private int paginas;
 
+    @Column(name = "anio_publicacion")
+    private Integer anioPublicacion; // Integer (no int), porque puede ser null
+
     // Un libro → muchos préstamos.
     // mappedBy = "libro": la relación ya está definida por el campo "libro" de Prestamo,
     // que es el lado propietario (tiene la clave foránea). Este lado es solo "de lectura".
@@ -79,5 +82,9 @@ public class Libro {
     // Así nadie puede añadir o quitar préstamos desde fuera de forma descontrolada.
     public List<Prestamo> getPrestamos() {
         return Collections.unmodifiableList(prestamos);
+    }
+
+    public Integer getAnioPublicacion() {
+        return anioPublicacion;
     }
 }
