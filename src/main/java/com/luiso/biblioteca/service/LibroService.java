@@ -1,21 +1,27 @@
 package com.luiso.biblioteca.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.luiso.biblioteca.dto.LibroRequest;
 import com.luiso.biblioteca.dto.LibroResponse;
+import com.luiso.biblioteca.dto.LibroResumen;
 import com.luiso.biblioteca.dto.PaginaResponse;
 import com.luiso.biblioteca.entity.Libro;
 import com.luiso.biblioteca.exception.LibroDuplicadoException;
 import com.luiso.biblioteca.exception.LibroNoEncontradoException;
 import com.luiso.biblioteca.repository.LibroRepository;
+import com.luiso.biblioteca.repository.LibroSpecifications;
 
 @Service
 public class LibroService {
@@ -29,21 +35,36 @@ public class LibroService {
     }
 
     @Transactional(readOnly = true)
-    public PaginaResponse<LibroResponse> listar(String autor, int page, int size, String sort) {
-        // 1. Construir la petición de página: número, tamaño y orden
+    public PaginaResponse<LibroResponse> listar(String titulo, String autor,
+                                                Integer paginasMin, Integer paginasMax,
+                                                int page, int size, String sort) {
+        // 1. Una Specification por cada filtro que haya llegado en la petición
+        List<Specification<Libro>> filtros = new ArrayList<>();
+        if (titulo != null) {
+            filtros.add(LibroSpecifications.tituloContiene(titulo));
+        }
+        if (autor != null) {
+            filtros.add(LibroSpecifications.autorContiene(autor));
+        }
+        if (paginasMin != null) {
+            filtros.add(LibroSpecifications.paginasMinimas(paginasMin));
+        }
+        if (paginasMax != null) {
+            filtros.add(LibroSpecifications.paginasMaximas(paginasMax));
+        }
+
+        // 2. allOf: las combina todas con AND. Si la lista está vacía, no filtra nada
+        Specification<Libro> especificacion = Specification.allOf(filtros);
+
+        // 3. Filtro + paginación + orden, en UNA consulta (más el count)
         Pageable pageable = PageRequest.of(page, size, crearOrden(sort));
+        Page<Libro> pagina = libroRepository.findAll(especificacion, pageable);
 
-        // 2. La base de datos devuelve SOLO las filas de esta página
-        Page<Libro> pagina = (autor == null)
-                ? libroRepository.findAll(pageable)
-                : libroRepository.findByAutorContainingIgnoreCase(autor, pageable);
+        log.debug("Página {} con {} filtros: {} de {} libros",
+                page, filtros.size(), pagina.getNumberOfElements(), pagina.getTotalElements());
 
-        log.debug("Página {} de tamaño {} ordenada por '{}': {} de {} libros",
-                page, size, sort, pagina.getNumberOfElements(), pagina.getTotalElements());
-
-        // 3. Convertir Page<Libro> en nuestro DTO. La API responde igual que antes
         return new PaginaResponse<>(
-                pagina.map(LibroResponse::desde).getContent(), // map: convierte cada Libro en LibroResponse
+                pagina.map(LibroResponse::desde).getContent(),
                 pagina.getNumber(),
                 pagina.getSize(),
                 pagina.getTotalElements(),
@@ -110,5 +131,10 @@ public class LibroService {
             orden = orden.ignoreCase();
         }
         return Sort.by(orden);
+    }
+
+    @Transactional(readOnly = true)
+    public List<LibroResumen> listarResumen() {
+        return libroRepository.findAllByOrderByTituloAsc();
     }
 }

@@ -1,6 +1,7 @@
 package com.luiso.biblioteca.controller;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.luiso.biblioteca.dto.LibroRequest;
 import com.luiso.biblioteca.dto.LibroResponse;
+import com.luiso.biblioteca.dto.LibroResumen;
 import com.luiso.biblioteca.dto.PaginaResponse;
 import com.luiso.biblioteca.service.LibroService;
 
@@ -43,15 +45,24 @@ public class LibroController {
         this.libroService = libroService;
     }
 
-    @Operation(summary = "Listar libros",
-               description = "Devuelve los libros paginados y ordenados. Permite filtrar por autor.")
+        @Operation(summary = "Listar libros",
+               description = "Devuelve los libros paginados y ordenados. Todos los filtros son opcionales y combinables.")
     @ApiResponse(responseCode = "200", description = "Página de libros")
-    @ApiResponse(responseCode = "400", description = "Parámetros de paginación u orden no válidos",
+    @ApiResponse(responseCode = "400", description = "Parámetros no válidos",
                  content = @Content(schema = @Schema(implementation = ProblemDetail.class)))
     @GetMapping
     public PaginaResponse<LibroResponse> listar(
-            @Parameter(description = "Texto que debe contener el nombre del autor", example = "martin")
+            @Parameter(description = "Texto que debe contener el título", example = "clean")
+            @RequestParam(required = false) String titulo,
+
+            @Parameter(description = "Texto que debe contener el autor", example = "martin")
             @RequestParam(required = false) String autor,
+
+            @Parameter(description = "Número mínimo de páginas")
+            @RequestParam(required = false) @Positive Integer paginasMin,
+
+            @Parameter(description = "Número máximo de páginas")
+            @RequestParam(required = false) @Positive Integer paginasMax,
 
             @Parameter(description = "Número de página, empezando en 0")
             @RequestParam(defaultValue = "0")
@@ -71,7 +82,7 @@ public class LibroController {
                      message = "Orden no válido. Usa campo,asc o campo,desc con: id, titulo, autor o paginas")
             String sort) {
 
-        return libroService.listar(autor, page, size, sort);
+        return libroService.listar(titulo, autor, paginasMin, paginasMax, page, size, sort);
     }
 
     @Operation(summary = "Obtener un libro por su id")
@@ -99,6 +110,12 @@ public class LibroController {
                 .buildAndExpand(creado.id())
                 .toUri();
         return ResponseEntity.created(ubicacion).body(creado);
+    }
+
+    @Operation(summary = "Listado ligero de libros (id y título), para desplegables")
+    @GetMapping("/resumen")
+    public List<LibroResumen> listarResumen() {
+        return libroService.listarResumen();
     }
 
     @Operation(summary = "Modificar un libro")

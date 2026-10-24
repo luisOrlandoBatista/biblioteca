@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.luiso.biblioteca.dto.LibroPopularidad;
 import com.luiso.biblioteca.dto.PrestamoRequest;
 import com.luiso.biblioteca.dto.PrestamoResponse;
 import com.luiso.biblioteca.service.PrestamoService;
@@ -19,6 +21,8 @@ import com.luiso.biblioteca.service.PrestamoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 @RestController
 @RequestMapping("/api")
@@ -59,5 +63,12 @@ public class PrestamoController {
                 .buildAndExpand(creado.id())
                 .toUri();
         return ResponseEntity.created(ubicacion).body(creado);
+    }
+
+    @Operation(summary = "Libros más prestados")
+    @GetMapping("/prestamos/estadisticas/populares")
+    public List<LibroPopularidad> librosMasPrestados(
+            @RequestParam(defaultValue = "5") @Min(1) @Max(20) int top) {
+        return prestamoService.librosMasPrestados(top);
     }
 }

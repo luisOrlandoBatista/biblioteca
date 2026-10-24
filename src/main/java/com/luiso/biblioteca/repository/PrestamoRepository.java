@@ -2,9 +2,11 @@ package com.luiso.biblioteca.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.luiso.biblioteca.dto.LibroPopularidad;
 import com.luiso.biblioteca.entity.Prestamo;
 
 public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
@@ -18,4 +20,15 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
 
     // ¿Cuántos préstamos sin devolver tiene este socio?
     long countBySocioAndFechaDevolucionIsNull(String socio);
+
+    // "SELECT new ...": crea un LibroPopularidad por cada fila del resultado.
+    // Hay que escribir el nombre COMPLETO de la clase, con su paquete.
+    // Pageable: aquí solo lo usamos para limitar cuántos resultados queremos (el "top N").
+    @Query("""
+            SELECT new com.luiso.biblioteca.dto.LibroPopularidad(l.titulo, COUNT(p))
+            FROM Prestamo p JOIN p.libro l
+            GROUP BY l.id, l.titulo
+            ORDER BY COUNT(p) DESC
+            """)
+    List<LibroPopularidad> findLibrosMasPrestados(Pageable pageable);
 }

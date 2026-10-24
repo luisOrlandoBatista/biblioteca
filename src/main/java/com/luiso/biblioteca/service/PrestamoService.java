@@ -6,10 +6,12 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.luiso.biblioteca.config.BibliotecaProperties;
+import com.luiso.biblioteca.dto.LibroPopularidad;
 import com.luiso.biblioteca.dto.PrestamoRequest;
 import com.luiso.biblioteca.dto.PrestamoResponse;
 import com.luiso.biblioteca.entity.Libro;
@@ -97,5 +99,11 @@ public class PrestamoService {
         log.info("Préstamo {} creado: libro '{}' para '{}'",
                 prestamo.getId(), libro.getTitulo(), request.socio());
         return PrestamoResponse.desde(prestamo);
+    }
+    
+    @Transactional(readOnly = true)
+    public List<LibroPopularidad> librosMasPrestados(int top) {
+        // Página 0 de tamaño "top" = los "top" primeros resultados
+        return prestamoRepository.findLibrosMasPrestados(PageRequest.of(0, top));
     }
 }
