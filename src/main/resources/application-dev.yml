@@ -2,6 +2,10 @@ spring:
   flyway:
     # En dev, además de la estructura, carga los datos de ejemplo
     locations: classpath:db/migration,classpath:db/datos-dev
+  security:
+    user:
+      name: admin
+      password: admin123   # SOLO para desarrollo. En el paso 6.2 los usuarios irán a la base de datos
 
 server:
   port: 8080
@@ -15,5 +19,6 @@ logging:
     org.hibernate.SQL: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
     org.springframework.orm.jpa.JpaTransactionManager: DEBUG
+    org.springframework.security: DEBUG
   file:
     name: logs/biblioteca.log
