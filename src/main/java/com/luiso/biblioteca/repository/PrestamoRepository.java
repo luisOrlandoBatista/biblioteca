@@ -3,6 +3,7 @@ package com.luiso.biblioteca.repository;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -31,4 +32,8 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
             ORDER BY COUNT(p) DESC
             """)
     List<LibroPopularidad> findLibrosMasPrestados(Pageable pageable);
+
+    // Los préstamos de un socio, con su libro en la misma consulta (sin N+1, paso 4.4)
+    @EntityGraph(attributePaths = "libro")
+    List<Prestamo> findBySocioOrderByIdAsc(String socio);
 }

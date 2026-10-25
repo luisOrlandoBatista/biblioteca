@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,6 +47,7 @@ public class PrestamoService {
         this.clock = clock;
     }
 
+    @PreAuthorize("hasRole('ADMIN')") // solo ADMIN ve todos los préstamos
     @Transactional(readOnly = true)
     public List<PrestamoResponse> listar() {
         return prestamoRepository.findAllConLibro().stream()
@@ -70,6 +72,9 @@ public class PrestamoService {
     }
 
     // UNA transacción (REQUIRED) para toda la operación de negocio
+    // ADMIN puede crear préstamos para cualquiera.
+    // Un socio, solo para sí mismo: el campo "socio" de la petición debe ser su propio usuario
+    @PreAuthorize("hasRole('ADMIN') or #request.socio() == authentication.name")
     @Transactional
     public PrestamoResponse crear(PrestamoRequest request) {
         // 1. Auditar el INTENTO. Va en su propia transacción (REQUIRES_NEW):
@@ -105,5 +110,14 @@ public class PrestamoService {
     public List<LibroPopularidad> librosMasPrestados(int top) {
         // Página 0 de tamaño "top" = los "top" primeros resultados
         return prestamoRepository.findLibrosMasPrestados(PageRequest.of(0, top));
+    }
+
+    // ADMIN ve los de cualquier socio. Un socio, solo los suyos
+    @PreAuthorize("hasRole('ADMIN') or #socio == authentication.name")
+    @Transactional(readOnly = true)
+    public List<PrestamoResponse> listarPorSocio(String socio) {
+        return prestamoRepository.findBySocioOrderByIdAsc(socio).stream()
+                .map(PrestamoResponse::desde)
+                .toList();
     }
 }

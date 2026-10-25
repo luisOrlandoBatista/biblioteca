@@ -71,4 +71,10 @@ public class PrestamoController {
             @RequestParam(defaultValue = "5") @Min(1) @Max(20) int top) {
         return prestamoService.librosMasPrestados(top);
     }
+
+    @Operation(summary = "Préstamos de un socio (un socio solo puede ver los suyos)")
+    @GetMapping("/prestamos/socio/{socio}")
+    public List<PrestamoResponse> listarPorSocio(@PathVariable String socio) {
+        return prestamoService.listarPorSocio(socio);
+    }
 }

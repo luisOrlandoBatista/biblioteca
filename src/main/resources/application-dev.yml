@@ -11,6 +11,10 @@ server:
 
 biblioteca:
   nombre: Biblioteca Central (DESARROLLO)
+  cors:
+    origenes-permitidos:      # una lista en YAML: un elemento por línea, con guion
+      - http://localhost:4200 # Angular
+      - http://localhost:5173 # Vite (React, Vue...)
 
 logging:
   level:
