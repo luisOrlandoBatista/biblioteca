@@ -2,10 +2,6 @@ spring:
   flyway:
     # En dev, además de la estructura, carga los datos de ejemplo
     locations: classpath:db/migration,classpath:db/datos-dev
-  security:
-    user:
-      name: admin
-      password: admin123   # SOLO para desarrollo. En el paso 6.2 los usuarios irán a la base de datos
 
 server:
   port: 8080
