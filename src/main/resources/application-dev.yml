@@ -1,4 +1,7 @@
 spring:
+  config:
+    # Carga también secretos.yml. "optional:" → si el archivo no existe, no falla al leerlo
+    import: optional:file:./secretos.yml
   flyway:
     # En dev, además de la estructura, carga los datos de ejemplo
     locations: classpath:db/migration,classpath:db/datos-dev

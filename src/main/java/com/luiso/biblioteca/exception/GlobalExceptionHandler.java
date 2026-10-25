@@ -3,6 +3,9 @@ package com.luiso.biblioteca.exception;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -93,6 +96,27 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ProblemDetail problema = ProblemDetail.forStatusAndDetail(
                 HttpStatus.INTERNAL_SERVER_ERROR, "Ha ocurrido un error interno. Inténtalo más tarde.");
         problema.setTitle("Error interno del servidor");
+        return problema;
+    }
+
+        // 401: credenciales incorrectas en el login, o token ausente, inválido o caducado
+    @ExceptionHandler(AuthenticationException.class)
+    public ProblemDetail manejarNoAutenticado(AuthenticationException ex) {
+        log.warn("Autenticación fallida: {}", ex.getMessage());
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(
+                HttpStatus.UNAUTHORIZED,
+                "Credenciales incorrectas, o token ausente, inválido o caducado");
+        problema.setTitle("No autenticado");
+        return problema;
+    }
+
+    // 403: autenticado, pero sin permiso (lo usaremos en el paso 6.5)
+    @ExceptionHandler(AccessDeniedException.class)
+    public ProblemDetail manejarAccesoDenegado(AccessDeniedException ex) {
+        log.warn("Acceso denegado: {}", ex.getMessage());
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(
+                HttpStatus.FORBIDDEN, "No tienes permiso para realizar esta operación");
+        problema.setTitle("Acceso denegado");
         return problema;
     }
 }

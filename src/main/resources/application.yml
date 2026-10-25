@@ -16,6 +16,10 @@ biblioteca:
   max-prestamos: 3
   bienvenida:
     activa: true
+  jwt:
+    emisor: biblioteca-api
+    expiracion: 15m          # access token: corto
+    expiracion-refresh: 7d   # refresh token: largo ("7d" = 7 días)
 
 springdoc:
   paths-to-match: /api/**

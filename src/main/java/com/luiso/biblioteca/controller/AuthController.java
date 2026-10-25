@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.luiso.biblioteca.dto.LoginRequest;
+import com.luiso.biblioteca.dto.RefreshRequest;
 import com.luiso.biblioteca.dto.RegistroRequest;
+import com.luiso.biblioteca.dto.TokenResponse;
 import com.luiso.biblioteca.dto.UsuarioActualResponse;
 import com.luiso.biblioteca.dto.UsuarioResponse;
+import com.luiso.biblioteca.service.AuthService;
 import com.luiso.biblioteca.service.UsuarioService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -23,24 +27,42 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
-@Tag(name = "Autenticación", description = "Registro y datos del usuario actual")
+@Tag(name = "Autenticación", description = "Registro, login, renovación de tokens y logout")
 public class AuthController {
 
     private final UsuarioService usuarioService;
+    private final AuthService authService;
 
-    public AuthController(UsuarioService usuarioService) {
+    public AuthController(UsuarioService usuarioService, AuthService authService) {
         this.usuarioService = usuarioService;
+        this.authService = authService;
     }
 
     @Operation(summary = "Registrar un nuevo socio")
     @PostMapping("/registro")
     public ResponseEntity<UsuarioResponse> registrar(@Valid @RequestBody RegistroRequest request) {
-        // 201 sin cabecera Location: no hay un endpoint público para consultar usuarios
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.registrar(request));
     }
 
-    // Si un método del controlador recibe un parámetro de tipo Authentication,
-    // Spring lo rellena con el usuario autenticado de esta petición (del SecurityContextHolder, paso 6.1)
+    @Operation(summary = "Iniciar sesión: devuelve un access token y un refresh token")
+    @PostMapping("/login")
+    public TokenResponse login(@Valid @RequestBody LoginRequest request) {
+        return authService.login(request);
+    }
+
+    @Operation(summary = "Renovar el access token usando el refresh token")
+    @PostMapping("/refresh")
+    public TokenResponse refrescar(@Valid @RequestBody RefreshRequest request) {
+        return authService.refrescar(request.refreshToken());
+    }
+
+    @Operation(summary = "Cerrar sesión: revoca el refresh token")
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@Valid @RequestBody RefreshRequest request) {
+        authService.logout(request.refreshToken());
+        return ResponseEntity.noContent().build(); // 204, siempre
+    }
+
     @Operation(summary = "Datos del usuario autenticado")
     @GetMapping("/yo")
     public UsuarioActualResponse yo(Authentication authentication) {

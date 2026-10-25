@@ -208,3 +208,634 @@ Caused by: org.springframework.security.core.userdetails.UsernameNotFoundExcepti
 2026-10-25T00:17:34.988+02:00  WARN 18449 --- [biblioteca] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.springframework.boot.jdbc.autoconfigure.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
 2026-10-25T00:17:34.989+02:00  INFO 18449 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-10-25T00:17:35.493+02:00  INFO 18449 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-25T12:16:30.178+01:00  INFO 22299 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Starting BibliotecaApplication using Java 25.0.4.1 with PID 22299 (/Users/luiso/Data/Git/curso-spring/biblioteca/target/classes started by luiso in /Users/luiso/Data/Git/curso-spring/biblioteca)
+2026-10-25T12:16:30.180+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-25T12:16:30.181+01:00  INFO 22299 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : The following 1 profile is active: "dev"
+2026-10-25T12:16:30.236+01:00  INFO 22299 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-25T12:16:30.237+01:00  INFO 22299 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-25T12:16:30.256+01:00  INFO 22299 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /Users/luiso/Data/Git/curso-spring/biblioteca/compose.yaml
+2026-10-25T12:16:32.761+01:00  INFO 22299 --- [biblioteca] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container biblioteca-postgres Starting 
+2026-10-25T12:16:32.878+01:00  INFO 22299 --- [biblioteca] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container biblioteca-postgres Started 
+2026-10-25T12:16:32.879+01:00  INFO 22299 --- [biblioteca] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container biblioteca-postgres Waiting 
+2026-10-25T12:16:33.391+01:00  INFO 22299 --- [biblioteca] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container biblioteca-postgres Healthy 
+2026-10-25T12:16:34.360+01:00  INFO 22299 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-25T12:16:34.417+01:00  INFO 22299 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 4 JPA repository interfaces.
+2026-10-25T12:16:34.886+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-10-25T12:16:34.900+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-25T12:16:34.900+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-25T12:16:34.929+01:00  INFO 22299 --- [biblioteca] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1144 ms
+2026-10-25T12:16:35.281+01:00  INFO 22299 --- [biblioteca] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca (PostgreSQL 18.6)
+2026-10-25T12:16:35.353+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 7 migrations (execution time 00:00.027s)
+2026-10-25T12:16:35.394+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 5
+2026-10-25T12:16:35.405+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "6 - crear tabla usuarios"
+2026-10-25T12:16:35.431+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v6 (execution time 00:00.016s)
+2026-10-25T12:16:35.495+01:00  INFO 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-25T12:16:35.538+01:00  INFO 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-25T12:16:35.778+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-25T12:16:35.800+01:00  INFO 22299 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-25T12:16:35.821+01:00  INFO 22299 --- [biblioteca] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4fee4e6a
+2026-10-25T12:16:35.823+01:00  INFO 22299 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-25T12:16:35.893+01:00  INFO 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: biblioteca/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-25T12:16:36.525+01:00  INFO 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-25T12:16:36.574+01:00  INFO 22299 --- [biblioteca] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T12:16:36.637+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-25T12:16:37.333+01:00  INFO 22299 --- [biblioteca] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name usuarioDetailsService
+2026-10-25T12:16:37.475+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-10-25T12:16:37.899+01:00  INFO 22299 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-25T12:16:37.909+01:00  INFO 22299 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Started BibliotecaApplication in 8.069 seconds (process running for 8.674)
+2026-10-25T12:16:37.912+01:00  INFO 22299 --- [biblioteca] [restartedMain] com.luiso.biblioteca.config.AppConfig    : ¡Bienvenido a la API de Biblioteca Central (DESARROLLO)!
+2026-10-25T12:16:37.996+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T12:16:37.997+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T12:16:37.997+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T12:16:38.129+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-10-25T12:16:38.130+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(2066085870<open>)] for JPA transaction
+2026-10-25T12:16:38.132+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@76378d37]
+2026-10-25T12:16:38.146+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : insert into usuarios (activo,password,rol,username) values (?,?,?,?)
+2026-10-25T12:16:38.148+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2026-10-25T12:16:38.148+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [$2a$10$2WL.sAS6lXR9Crjk/.XjSuEwbYP1CXwKIKGQgmEx3EDGkHoPsKWlu]
+2026-10-25T12:16:38.148+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [ADMIN]
+2026-10-25T12:16:38.148+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [admin]
+2026-10-25T12:16:38.156+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:16:38.156+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(2066085870<open>)]
+2026-10-25T12:16:38.161+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:16:38.161+01:00  INFO 22299 --- [biblioteca] [restartedMain] c.l.b.config.DatosDesarrolloConfig       : Usuario de desarrollo creado: admin (ADMIN)
+2026-10-25T12:16:38.162+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T12:16:38.162+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ana]
+2026-10-25T12:16:38.162+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T12:16:38.272+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-10-25T12:16:38.273+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(275099090<open>)] for JPA transaction
+2026-10-25T12:16:38.273+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@23a7f79c]
+2026-10-25T12:16:38.273+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : insert into usuarios (activo,password,rol,username) values (?,?,?,?)
+2026-10-25T12:16:38.273+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2026-10-25T12:16:38.273+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [$2a$10$M2FVbWjjdjgysV1UF6sD6OCj20noLtohwt5X7ecrNkl4hwCG0X0h2]
+2026-10-25T12:16:38.273+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [SOCIO]
+2026-10-25T12:16:38.274+01:00 TRACE 22299 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [ana]
+2026-10-25T12:16:38.275+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:16:38.275+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(275099090<open>)]
+2026-10-25T12:16:38.277+01:00 DEBUG 22299 --- [biblioteca] [restartedMain] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:16:38.277+01:00  INFO 22299 --- [biblioteca] [restartedMain] c.l.b.config.DatosDesarrolloConfig       : Usuario de desarrollo creado: ana (SOCIO)
+2026-10-25T12:16:38.278+01:00  WARN 22299 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-25T12:16:38.278+01:00  WARN 22299 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-25T12:18:24.884+01:00  INFO 22299 --- [biblioteca] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-25T12:18:24.884+01:00  INFO 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-25T12:18:24.885+01:00  INFO 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-25T12:18:24.890+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/yo
+2026-10-25T12:18:25.012+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:18:25.012+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(342187049<open>)] for JPA transaction
+2026-10-25T12:18:25.014+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@56602099]
+2026-10-25T12:18:25.024+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:18:25.025+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-2] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T12:18:25.037+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:18:25.037+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(342187049<open>)]
+2026-10-25T12:18:25.039+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:18:25.152+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:18:25.153+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admin, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:18:25.152115Z]]]
+2026-10-25T12:18:25.155+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/yo
+2026-10-25T12:18:25.172+01:00  WARN 22299 --- [biblioteca] [http-nio-8080-exec-2] o.s.web.servlet.PageNotFound             : Request method 'POST' is not supported
+2026-10-25T12:18:25.219+01:00  WARN 22299 --- [biblioteca] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2026-10-25T12:18:31.081+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/yo
+2026-10-25T12:18:31.082+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:18:31.083+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(46365189<open>)] for JPA transaction
+2026-10-25T12:18:31.084+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@c04842d]
+2026-10-25T12:18:31.085+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:18:31.085+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T12:18:31.087+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:18:31.088+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(46365189<open>)]
+2026-10-25T12:18:31.089+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:18:31.200+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:18:31.201+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admin, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:18:31.200511Z]]]
+2026-10-25T12:18:31.201+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/yo
+2026-10-25T12:19:00.626+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/yo
+2026-10-25T12:19:00.627+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:19:00.627+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(765535068<open>)] for JPA transaction
+2026-10-25T12:19:00.629+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2366d898]
+2026-10-25T12:19:00.630+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:19:00.631+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- []
+2026-10-25T12:19:00.634+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction rollback
+2026-10-25T12:19:00.636+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Rolling back JPA transaction on EntityManager [SessionImpl(765535068<open>)]
+2026-10-25T12:19:00.639+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:19:00.639+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user ''
+2026-10-25T12:19:00.650+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Credenciales erróneas
+2026-10-25T12:19:00.650+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.authentication.ProviderManager     : Denying authentication since all attempted providers failed
+2026-10-25T12:19:00.651+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.w.a.www.BasicAuthenticationFilter  : Failed to process authentication request
+
+org.springframework.security.authentication.BadCredentialsException: Credenciales erróneas
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:154) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:215) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:204) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:406) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2036) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: org.springframework.security.core.userdetails.UsernameNotFoundException: Usuario no encontrado: 
+	at com.luiso.biblioteca.service.UsuarioDetailsService.lambda$0(UsuarioDetailsService.java:29) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername(UsuarioDetailsService.java:29) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.9.jar:7.0.9]
+	at com.luiso.biblioteca.service.UsuarioDetailsService$$SpringCGLIB$$0.loadUserByUsername(<generated>) ~[classes/:na]
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:106) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:145) ~[spring-security-core-7.1.1.jar:7.1.1]
+	... 56 common frames omitted
+
+2026-10-25T12:19:00.658+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] s.w.a.DelegatingAuthenticationEntryPoint : Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-10-25T12:19:00.658+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] s.w.a.DelegatingAuthenticationEntryPoint : No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@5eb97d87
+2026-10-25T12:19:00.663+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /error
+2026-10-25T12:19:00.664+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-10-25T12:19:00.664+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 31DAECF4925E398F958D0F611020B81D
+2026-10-25T12:19:00.664+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /error
+2026-10-25T12:19:37.531+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/yo
+2026-10-25T12:19:37.532+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:19:37.533+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(781669597<open>)] for JPA transaction
+2026-10-25T12:19:37.534+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2050af7f]
+2026-10-25T12:19:37.536+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:19:37.536+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T12:19:37.539+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:19:37.540+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(781669597<open>)]
+2026-10-25T12:19:37.542+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:19:37.661+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:19:37.662+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admin, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:19:37.661905Z]]]
+2026-10-25T12:19:37.662+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/yo
+2026-10-25T12:21:11.281+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/auth/yo
+2026-10-25T12:21:11.283+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:21:11.283+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(901554879<open>)] for JPA transaction
+2026-10-25T12:21:11.285+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@3b7b5a78]
+2026-10-25T12:21:11.287+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:21:11.287+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ana]
+2026-10-25T12:21:11.290+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:21:11.292+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(901554879<open>)]
+2026-10-25T12:21:11.300+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:21:11.412+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:21:11.412+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ana, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_SOCIO]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_SOCIO, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:21:11.412204Z]]]
+2026-10-25T12:21:11.413+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/auth/yo
+2026-10-25T12:22:34.911+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/registro
+2026-10-25T12:22:34.912+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:22:34.913+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(940615069<open>)] for JPA transaction
+2026-10-25T12:22:34.914+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5a94de18]
+2026-10-25T12:22:34.915+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:22:34.916+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ana]
+2026-10-25T12:22:34.918+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:22:34.918+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(940615069<open>)]
+2026-10-25T12:22:34.920+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:22:35.073+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:22:35.074+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ana, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_SOCIO]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_SOCIO, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:22:35.073694Z]]]
+2026-10-25T12:22:35.074+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/registro
+2026-10-25T12:22:35.254+01:00  WARN 22299 --- [biblioteca] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.luiso.biblioteca.dto.UsuarioResponse> com.luiso.biblioteca.controller.AuthController.registrar(com.luiso.biblioteca.dto.RegistroRequest): [Field error in object 'registroRequest' on field 'password': rejected value [luis123]; codes [Size.registroRequest.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [registroRequest.password,password]; arguments []; default message [password],72,8]; default message [La contraseña debe tener entre 8 y 72 caracteres]] ]
+2026-10-25T12:23:05.048+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/registro
+2026-10-25T12:23:05.049+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:23:05.050+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(274047765<open>)] for JPA transaction
+2026-10-25T12:23:05.051+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@7e523eb8]
+2026-10-25T12:23:05.053+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:23:05.053+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- []
+2026-10-25T12:23:05.055+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction rollback
+2026-10-25T12:23:05.055+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Rolling back JPA transaction on EntityManager [SessionImpl(274047765<open>)]
+2026-10-25T12:23:05.057+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:23:05.058+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user ''
+2026-10-25T12:23:05.059+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Credenciales erróneas
+2026-10-25T12:23:05.059+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.authentication.ProviderManager     : Denying authentication since all attempted providers failed
+2026-10-25T12:23:05.059+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.w.a.www.BasicAuthenticationFilter  : Failed to process authentication request
+
+org.springframework.security.authentication.BadCredentialsException: Credenciales erróneas
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:154) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:183) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:215) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:204) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:385) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.1.1.jar:7.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.9.jar:7.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:111) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:535) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:86) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:71) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:347) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:406) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:71) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1307) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:2036) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:74) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:949) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:483) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:74) ~[tomcat-embed-core-11.0.24.jar:11.0.24]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: org.springframework.security.core.userdetails.UsernameNotFoundException: Usuario no encontrado: 
+	at com.luiso.biblioteca.service.UsuarioDetailsService.lambda$0(UsuarioDetailsService.java:29) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername(UsuarioDetailsService.java:29) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.9.jar:7.0.9]
+	at com.luiso.biblioteca.service.UsuarioDetailsService$$SpringCGLIB$$0.loadUserByUsername(<generated>) ~[classes/:na]
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:106) ~[spring-security-core-7.1.1.jar:7.1.1]
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:145) ~[spring-security-core-7.1.1.jar:7.1.1]
+	... 56 common frames omitted
+
+2026-10-25T12:23:05.064+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] s.w.a.DelegatingAuthenticationEntryPoint : Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-10-25T12:23:05.065+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] s.w.a.DelegatingAuthenticationEntryPoint : No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@5eb97d87
+2026-10-25T12:23:05.071+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /error
+2026-10-25T12:23:05.071+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-10-25T12:23:05.072+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 31DAECF4925E398F958D0F611020B81D
+2026-10-25T12:23:05.072+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /error
+2026-10-25T12:23:40.094+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/registro
+2026-10-25T12:23:40.095+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:23:40.095+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(883013087<open>)] for JPA transaction
+2026-10-25T12:23:40.097+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@3116a36e]
+2026-10-25T12:23:40.098+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:23:40.098+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T12:23:40.100+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:23:40.100+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(883013087<open>)]
+2026-10-25T12:23:40.102+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:23:40.216+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:23:40.216+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admin, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:23:40.216161Z]]]
+2026-10-25T12:23:40.217+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/registro
+2026-10-25T12:23:40.219+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioService.registrar]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-10-25T12:23:40.219+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(500115353<open>)] for JPA transaction
+2026-10-25T12:23:40.219+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@650c495b]
+2026-10-25T12:23:40.220+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T12:23:40.220+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [luis]
+2026-10-25T12:23:40.220+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T12:23:40.334+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(500115353<open>)] for JPA transaction
+2026-10-25T12:23:40.334+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Participating in existing transaction
+2026-10-25T12:23:40.335+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.SQL                        : insert into usuarios (activo,password,rol,username) values (?,?,?,?)
+2026-10-25T12:23:40.336+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:BOOLEAN) <- [true]
+2026-10-25T12:23:40.336+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (2:VARCHAR) <- [$2a$10$uA4DdB1ERIC0P1PwcT.jo./6DfPd8NM25wkT35v6XQHd7bfce1mh.]
+2026-10-25T12:23:40.336+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [SOCIO]
+2026-10-25T12:23:40.336+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (4:VARCHAR) <- [luis]
+2026-10-25T12:23:40.340+01:00  INFO 22299 --- [biblioteca] [http-nio-8080-exec-4] c.l.biblioteca.service.UsuarioService    : Usuario registrado: luis
+2026-10-25T12:23:40.340+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:23:40.340+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(500115353<open>)]
+2026-10-25T12:23:40.343+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:24:20.372+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/registro
+2026-10-25T12:24:20.372+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T12:24:20.373+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1976054792<open>)] for JPA transaction
+2026-10-25T12:24:20.375+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@50c64699]
+2026-10-25T12:24:20.376+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T12:24:20.376+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T12:24:20.378+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T12:24:20.379+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1976054792<open>)]
+2026-10-25T12:24:20.381+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:24:20.497+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T12:24:20.497+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.s.w.a.www.BasicAuthenticationFilter  : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=admin, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-10-25T11:24:20.497193Z]]]
+2026-10-25T12:24:20.497+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/registro
+2026-10-25T12:24:20.499+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioService.registrar]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-10-25T12:24:20.499+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1468939499<open>)] for JPA transaction
+2026-10-25T12:24:20.499+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@168da530]
+2026-10-25T12:24:20.500+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T12:24:20.500+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [luis]
+2026-10-25T12:24:20.500+01:00 TRACE 22299 --- [biblioteca] [http-nio-8080-exec-5] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T12:24:20.503+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction rollback
+2026-10-25T12:24:20.503+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Rolling back JPA transaction on EntityManager [SessionImpl(1468939499<open>)]
+2026-10-25T12:24:20.504+01:00 DEBUG 22299 --- [biblioteca] [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T12:24:20.505+01:00  WARN 22299 --- [biblioteca] [http-nio-8080-exec-5] c.l.b.exception.GlobalExceptionHandler   : Regla de negocio incumplida: El nombre de usuario 'luis' ya está en uso
+2026-10-25T12:24:20.508+01:00  WARN 22299 --- [biblioteca] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.luiso.biblioteca.exception.UsuarioDuplicadoException: El nombre de usuario 'luis' ya está en uso]
+2026-10-25T12:47:22.202+01:00  INFO 22299 --- [biblioteca] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-25T12:47:23.219+01:00  INFO 22299 --- [biblioteca] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-25T12:47:23.231+01:00  INFO 22299 --- [biblioteca] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T12:47:23.236+01:00  WARN 22299 --- [biblioteca] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.springframework.boot.jdbc.autoconfigure.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2026-10-25T12:47:23.236+01:00  INFO 22299 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-25T12:47:23.238+01:00  INFO 22299 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-25T14:09:54.161+01:00  INFO 33585 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Starting BibliotecaApplication using Java 25.0.4.1 with PID 33585 (/Users/luiso/Data/Git/curso-spring/biblioteca/target/classes started by luiso in /Users/luiso/Data/Git/curso-spring/biblioteca)
+2026-10-25T14:09:54.162+01:00 DEBUG 33585 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-25T14:09:54.162+01:00  INFO 33585 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : The following 1 profile is active: "dev"
+2026-10-25T14:09:54.190+01:00  INFO 33585 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-25T14:09:54.191+01:00  INFO 33585 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-25T14:09:54.199+01:00  INFO 33585 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /Users/luiso/Data/Git/curso-spring/biblioteca/compose.yaml
+2026-10-25T14:09:54.562+01:00  INFO 33585 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-10-25T14:09:54.904+01:00  INFO 33585 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-25T14:09:54.928+01:00  INFO 33585 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 4 JPA repository interfaces.
+2026-10-25T14:09:55.192+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-10-25T14:09:55.200+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-25T14:09:55.201+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-25T14:09:55.227+01:00  INFO 33585 --- [biblioteca] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 663 ms
+2026-10-25T14:09:55.444+01:00  INFO 33585 --- [biblioteca] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca (PostgreSQL 18.6)
+2026-10-25T14:09:55.483+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 7 migrations (execution time 00:00.018s)
+2026-10-25T14:09:55.505+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 6
+2026-10-25T14:09:55.508+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-25T14:09:55.554+01:00  INFO 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-25T14:09:55.586+01:00  INFO 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-25T14:09:55.745+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-25T14:09:55.759+01:00  INFO 33585 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-25T14:09:55.775+01:00  INFO 33585 --- [biblioteca] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3730fdc8
+2026-10-25T14:09:55.776+01:00  INFO 33585 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-25T14:09:55.821+01:00  INFO 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: biblioteca/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-25T14:09:56.182+01:00  INFO 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-25T14:09:56.206+01:00  INFO 33585 --- [biblioteca] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T14:09:56.259+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-25T14:09:56.349+01:00  INFO 33585 --- [biblioteca] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name usuarioDetailsService
+2026-10-25T14:09:56.807+01:00 DEBUG 33585 --- [biblioteca] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, OAuth2ProtectedResourceMetadataFilter, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-10-25T14:09:56.973+01:00  INFO 33585 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-25T14:09:56.977+01:00  INFO 33585 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Started BibliotecaApplication in 3.032 seconds (process running for 3.385)
+2026-10-25T14:09:57.033+01:00 DEBUG 33585 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T14:09:57.034+01:00 TRACE 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T14:09:57.034+01:00 TRACE 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T14:09:57.039+01:00 DEBUG 33585 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T14:09:57.039+01:00 TRACE 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ana]
+2026-10-25T14:09:57.039+01:00 TRACE 33585 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T14:09:57.040+01:00  INFO 33585 --- [biblioteca] [restartedMain] com.luiso.biblioteca.config.AppConfig    : ¡Bienvenido a la API de Biblioteca Central (DESARROLLO)!
+2026-10-25T14:09:57.041+01:00  WARN 33585 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-25T14:09:57.041+01:00  WARN 33585 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-25T14:10:36.697+01:00  INFO 33585 --- [biblioteca] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-25T14:10:36.697+01:00  INFO 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-25T14:10:36.698+01:00  INFO 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-25T14:10:36.702+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-10-25T14:10:36.710+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-10-25T14:10:36.710+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 31DAECF4925E398F958D0F611020B81D
+2026-10-25T14:10:36.711+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-10-25T14:10:36.812+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T14:10:36.813+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1112403393<open>)] for JPA transaction
+2026-10-25T14:10:36.817+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@546fbf55]
+2026-10-25T14:10:36.823+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T14:10:36.824+01:00 TRACE 33585 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [luis]
+2026-10-25T14:10:36.834+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T14:10:36.834+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1112403393<open>)]
+2026-10-25T14:10:36.836+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T14:10:36.900+01:00 DEBUG 33585 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T14:27:57.722+01:00  INFO 33585 --- [biblioteca] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-25T14:27:59.742+01:00  INFO 33585 --- [biblioteca] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-25T14:27:59.760+01:00  INFO 33585 --- [biblioteca] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T14:27:59.767+01:00  WARN 33585 --- [biblioteca] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.springframework.boot.jdbc.autoconfigure.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2026-10-25T14:27:59.768+01:00  INFO 33585 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-25T14:27:59.769+01:00  INFO 33585 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-25T14:30:45.408+01:00  INFO 39666 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Starting BibliotecaApplication using Java 25.0.4.1 with PID 39666 (/Users/luiso/Data/Git/curso-spring/biblioteca/target/classes started by luiso in /Users/luiso/Data/Git/curso-spring/biblioteca)
+2026-10-25T14:30:45.410+01:00 DEBUG 39666 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-25T14:30:45.411+01:00  INFO 39666 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : The following 1 profile is active: "dev"
+2026-10-25T14:30:45.438+01:00  INFO 39666 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-25T14:30:45.438+01:00  INFO 39666 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-25T14:30:45.448+01:00  INFO 39666 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /Users/luiso/Data/Git/curso-spring/biblioteca/compose.yaml
+2026-10-25T14:30:45.844+01:00  INFO 39666 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-10-25T14:30:46.191+01:00  INFO 39666 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-25T14:30:46.256+01:00  INFO 39666 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2026-10-25T14:30:46.502+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-10-25T14:30:46.508+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-25T14:30:46.509+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-25T14:30:46.525+01:00  INFO 39666 --- [biblioteca] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 677 ms
+2026-10-25T14:30:46.679+01:00  INFO 39666 --- [biblioteca] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca (PostgreSQL 18.6)
+2026-10-25T14:30:46.716+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 7 migrations (execution time 00:00.015s)
+2026-10-25T14:30:46.744+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 6
+2026-10-25T14:30:46.745+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-25T14:30:46.781+01:00  INFO 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-25T14:30:46.801+01:00  INFO 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-25T14:30:46.940+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-25T14:30:46.953+01:00  INFO 39666 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-25T14:30:46.972+01:00  INFO 39666 --- [biblioteca] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1f7b1dea
+2026-10-25T14:30:46.973+01:00  INFO 39666 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-25T14:30:47.013+01:00  INFO 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: biblioteca/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-25T14:30:47.334+01:00  INFO 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-25T14:30:47.357+01:00  INFO 39666 --- [biblioteca] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T14:30:47.404+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-25T14:30:47.476+01:00  INFO 39666 --- [biblioteca] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name usuarioDetailsService
+2026-10-25T14:30:47.915+01:00 DEBUG 39666 --- [biblioteca] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, OAuth2ProtectedResourceMetadataFilter, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-10-25T14:30:48.080+01:00  INFO 39666 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-25T14:30:48.084+01:00  INFO 39666 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Started BibliotecaApplication in 2.87 seconds (process running for 3.195)
+2026-10-25T14:30:48.086+01:00  INFO 39666 --- [biblioteca] [restartedMain] com.luiso.biblioteca.config.AppConfig    : ¡Bienvenido a la API de Biblioteca Central (DESARROLLO)!
+2026-10-25T14:30:48.134+01:00 DEBUG 39666 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T14:30:48.134+01:00 TRACE 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T14:30:48.134+01:00 TRACE 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T14:30:48.139+01:00 DEBUG 39666 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T14:30:48.139+01:00 TRACE 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ana]
+2026-10-25T14:30:48.139+01:00 TRACE 39666 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T14:30:48.140+01:00  WARN 39666 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-25T14:30:48.140+01:00  WARN 39666 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-25T14:30:55.184+01:00  INFO 39666 --- [biblioteca] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-25T14:30:55.185+01:00  INFO 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-25T14:30:55.186+01:00  INFO 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-25T14:30:55.192+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-10-25T14:30:55.196+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-10-25T14:30:55.196+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 31DAECF4925E398F958D0F611020B81D
+2026-10-25T14:30:55.197+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-10-25T14:30:55.284+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.UsuarioDetailsService.loadUserByUsername]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-10-25T14:30:55.285+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1976387771<open>)] for JPA transaction
+2026-10-25T14:30:55.287+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@3f533ef9]
+2026-10-25T14:30:55.290+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T14:30:55.291+01:00 TRACE 39666 --- [biblioteca] [http-nio-8080-exec-3] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [luis]
+2026-10-25T14:30:55.301+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T14:30:55.301+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1976387771<open>)]
+2026-10-25T14:30:55.302+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T14:30:55.363+01:00 DEBUG 39666 --- [biblioteca] [http-nio-8080-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T14:30:59.376+01:00  INFO 39666 --- [biblioteca] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-25T14:30:59.389+01:00  INFO 39666 --- [biblioteca] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-25T14:30:59.393+01:00  INFO 39666 --- [biblioteca] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T14:30:59.395+01:00  WARN 39666 --- [biblioteca] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.springframework.boot.jdbc.autoconfigure.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2026-10-25T14:30:59.396+01:00  INFO 39666 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-25T14:30:59.396+01:00  INFO 39666 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-25T15:38:36.342+01:00  INFO 42926 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Starting BibliotecaApplication using Java 25.0.4.1 with PID 42926 (/Users/luiso/Data/Git/curso-spring/biblioteca/target/classes started by luiso in /Users/luiso/Data/Git/curso-spring/biblioteca)
+2026-10-25T15:38:36.344+01:00 DEBUG 42926 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-10-25T15:38:36.344+01:00  INFO 42926 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : The following 1 profile is active: "dev"
+2026-10-25T15:38:36.373+01:00  INFO 42926 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-10-25T15:38:36.373+01:00  INFO 42926 --- [biblioteca] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-10-25T15:38:36.386+01:00  INFO 42926 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /Users/luiso/Data/Git/curso-spring/biblioteca/compose.yaml
+2026-10-25T15:38:36.745+01:00  INFO 42926 --- [biblioteca] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-10-25T15:38:37.061+01:00  INFO 42926 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-25T15:38:37.087+01:00  INFO 42926 --- [biblioteca] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 5 JPA repository interfaces.
+2026-10-25T15:38:37.329+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-10-25T15:38:37.335+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-25T15:38:37.335+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-25T15:38:37.349+01:00  INFO 42926 --- [biblioteca] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 601 ms
+2026-10-25T15:38:37.527+01:00  INFO 42926 --- [biblioteca] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca (PostgreSQL 18.6)
+2026-10-25T15:38:37.567+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 8 migrations (execution time 00:00.017s)
+2026-10-25T15:38:37.593+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 6
+2026-10-25T15:38:37.599+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "7 - crear tabla refresh tokens"
+2026-10-25T15:38:37.621+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v7 (execution time 00:00.013s)
+2026-10-25T15:38:37.658+01:00  INFO 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-25T15:38:37.678+01:00  INFO 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-25T15:38:37.804+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-25T15:38:37.815+01:00  INFO 42926 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-25T15:38:37.828+01:00  INFO 42926 --- [biblioteca] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7cbd851a
+2026-10-25T15:38:37.828+01:00  INFO 42926 --- [biblioteca] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-25T15:38:37.870+01:00  INFO 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5432/biblioteca?ApplicationName=biblioteca]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: biblioteca/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-25T15:38:38.186+01:00  INFO 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-25T15:38:38.211+01:00  INFO 42926 --- [biblioteca] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T15:38:38.264+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-25T15:38:38.337+01:00  INFO 42926 --- [biblioteca] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name usuarioDetailsService
+2026-10-25T15:38:38.773+01:00 DEBUG 42926 --- [biblioteca] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, OAuth2ProtectedResourceMetadataFilter, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-10-25T15:38:38.950+01:00  INFO 42926 --- [biblioteca] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-25T15:38:38.956+01:00  INFO 42926 --- [biblioteca] [restartedMain] c.l.biblioteca.BibliotecaApplication     : Started BibliotecaApplication in 2.815 seconds (process running for 3.134)
+2026-10-25T15:38:38.958+01:00  INFO 42926 --- [biblioteca] [restartedMain] com.luiso.biblioteca.config.AppConfig    : ¡Bienvenido a la API de Biblioteca Central (DESARROLLO)!
+2026-10-25T15:38:39.003+01:00 DEBUG 42926 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T15:38:39.003+01:00 TRACE 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2026-10-25T15:38:39.004+01:00 TRACE 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T15:38:39.008+01:00 DEBUG 42926 --- [biblioteca] [restartedMain] org.hibernate.SQL                        : select u1_0.id from usuarios u1_0 where u1_0.username=? fetch first ? rows only
+2026-10-25T15:38:39.008+01:00 TRACE 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [ana]
+2026-10-25T15:38:39.009+01:00 TRACE 42926 --- [biblioteca] [restartedMain] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2026-10-25T15:38:39.010+01:00  WARN 42926 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-10-25T15:38:39.010+01:00  WARN 42926 --- [biblioteca] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-10-25T15:38:44.530+01:00  INFO 42926 --- [biblioteca] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-25T15:38:44.530+01:00  INFO 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-25T15:38:44.531+01:00  INFO 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-25T15:38:44.535+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-10-25T15:38:44.539+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-10-25T15:38:44.540+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 31DAECF4925E398F958D0F611020B81D
+2026-10-25T15:38:44.541+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-10-25T15:38:44.566+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.luiso.biblioteca.service.AuthService.login]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-10-25T15:38:44.566+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(978110179<open>)] for JPA transaction
+2026-10-25T15:38:44.569+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@1620cd0]
+2026-10-25T15:38:44.637+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(978110179<open>)] for JPA transaction
+2026-10-25T15:38:44.638+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Participating in existing transaction
+2026-10-25T15:38:44.641+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T15:38:44.641+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [luis]
+2026-10-25T15:38:44.709+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-10-25T15:38:44.713+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.SQL                        : select u1_0.id,u1_0.activo,u1_0.password,u1_0.rol,u1_0.username from usuarios u1_0 where u1_0.username=?
+2026-10-25T15:38:44.713+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [luis]
+2026-10-25T15:38:44.715+01:00  INFO 42926 --- [biblioteca] [http-nio-8080-exec-1] c.luiso.biblioteca.service.AuthService   : Login correcto de 'luis'
+2026-10-25T15:38:44.716+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(978110179<open>)] for JPA transaction
+2026-10-25T15:38:44.716+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Participating in existing transaction
+2026-10-25T15:38:44.721+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into refresh_tokens (creado_en,expira_en,familia,revocado,token_hash,usuario_id) values (?,?,?,?,?,?)
+2026-10-25T15:38:44.722+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (1:TIMESTAMP) <- [2026-10-25T15:38:44.715450]
+2026-10-25T15:38:44.722+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (2:TIMESTAMP) <- [2026-11-01T15:38:44.715450]
+2026-10-25T15:38:44.722+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (3:VARCHAR) <- [abc7fb92-718c-4826-88b8-19a63ed05060]
+2026-10-25T15:38:44.722+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (4:BOOLEAN) <- [false]
+2026-10-25T15:38:44.722+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (5:VARCHAR) <- [bd1efd7fd6002c99139de53af13b44cd38a68e27fb4b36912a4ad9323eff8079]
+2026-10-25T15:38:44.722+01:00 TRACE 42926 --- [biblioteca] [http-nio-8080-exec-1] org.hibernate.orm.jdbc.bind              : binding parameter (6:BIGINT) <- [3]
+2026-10-25T15:38:44.741+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2026-10-25T15:38:44.742+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(978110179<open>)]
+2026-10-25T15:38:44.744+01:00 DEBUG 42926 --- [biblioteca] [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager after transaction
+2026-10-25T15:39:38.563+01:00  INFO 42926 --- [biblioteca] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-25T15:39:39.582+01:00  INFO 42926 --- [biblioteca] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-25T15:39:39.591+01:00  INFO 42926 --- [biblioteca] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-25T15:39:39.594+01:00  WARN 42926 --- [biblioteca] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.springframework.boot.jdbc.autoconfigure.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2026-10-25T15:39:39.595+01:00  INFO 42926 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-25T15:39:39.596+01:00  INFO 42926 --- [biblioteca] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
