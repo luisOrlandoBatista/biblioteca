@@ -49,6 +49,10 @@ public class SecurityConfig {
                                 "/api/auth/refresh", "/api/auth/logout").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/libros/**").permitAll()
 
+                        // Valorar: cualquier socio o admin. DEBE ir antes de la regla de ADMIN
+                        // "*" representa UN segmento de la ruta: el id del libro
+                        .requestMatchers(HttpMethod.POST, "/api/libros/*/valoraciones").hasAnyRole("SOCIO", "ADMIN")
+                        
                         // NUEVO: escribir en el catálogo es solo para ADMIN
                         .requestMatchers(HttpMethod.POST, "/api/libros/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/libros/**").hasRole("ADMIN")
