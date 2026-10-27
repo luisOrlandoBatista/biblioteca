@@ -20,6 +20,7 @@ import com.luiso.biblioteca.dto.PaginaResponse;
 import com.luiso.biblioteca.entity.Libro;
 import com.luiso.biblioteca.exception.LibroDuplicadoException;
 import com.luiso.biblioteca.exception.LibroNoEncontradoException;
+import com.luiso.biblioteca.mapper.LibroMapper;
 import com.luiso.biblioteca.repository.LibroRepository;
 import com.luiso.biblioteca.repository.LibroSpecifications;
 
@@ -29,9 +30,11 @@ public class LibroService {
     private static final Logger log = LoggerFactory.getLogger(LibroService.class);
 
     private final LibroRepository libroRepository;
+    private final LibroMapper libroMapper;
 
-    public LibroService(LibroRepository libroRepository) {
+    public LibroService(LibroRepository libroRepository, LibroMapper libroMapper) {
         this.libroRepository = libroRepository;
+        this.libroMapper = libroMapper;
     }
 
     @Transactional(readOnly = true)
@@ -64,7 +67,7 @@ public class LibroService {
                 page, filtros.size(), pagina.getNumberOfElements(), pagina.getTotalElements());
 
         return new PaginaResponse<>(
-                pagina.map(LibroResponse::desde).getContent(),
+                pagina.map(libroMapper::aResponse).getContent(),
                 pagina.getNumber(),
                 pagina.getSize(),
                 pagina.getTotalElements(),
@@ -74,7 +77,7 @@ public class LibroService {
     @Transactional(readOnly = true)
     public LibroResponse buscarPorId(Long id) {
         log.debug("Buscando libro con id {}", id);
-        return LibroResponse.desde(obtenerLibro(id));
+        return libroMapper.aResponse(obtenerLibro(id));
     }
 
     @Transactional
@@ -85,7 +88,7 @@ public class LibroService {
         Libro nuevo = new Libro(request.titulo(), request.autor(), request.paginas());
         Libro guardado = libroRepository.save(nuevo);
         log.info("Libro creado con id {}", guardado.getId());
-        return LibroResponse.desde(guardado);
+        return libroMapper.aResponse(guardado);
     }
 
     @Transactional
@@ -93,7 +96,7 @@ public class LibroService {
         Libro libro = obtenerLibro(id);
         libro.actualizar(request.titulo(), request.autor(), request.paginas()); // dirty checking
         log.info("Libro {} actualizado", id);
-        return LibroResponse.desde(libro);
+        return libroMapper.aResponse(libro);
     }
 
     @Transactional

@@ -21,6 +21,7 @@ import com.luiso.biblioteca.exception.LibroNoDisponibleException;
 import com.luiso.biblioteca.exception.LibroNoEncontradoException;
 import com.luiso.biblioteca.exception.LimitePrestamosExcedidoException;
 import com.luiso.biblioteca.exception.PrestamoNoEncontradoException;
+import com.luiso.biblioteca.mapper.PrestamoMapper;
 import com.luiso.biblioteca.repository.LibroRepository;
 import com.luiso.biblioteca.repository.PrestamoRepository;
 
@@ -34,31 +35,33 @@ public class PrestamoService {
     private final AuditoriaService auditoriaService;
     private final BibliotecaProperties properties; // max-prestamos, del paso 2.5
     private final Clock clock;
+    private final PrestamoMapper prestamoMapper;
 
     public PrestamoService(PrestamoRepository prestamoRepository,
                            LibroRepository libroRepository,
                            AuditoriaService auditoriaService,
                            BibliotecaProperties properties,
-                           Clock clock) {
+                           Clock clock, PrestamoMapper prestamoMapper) {
         this.prestamoRepository = prestamoRepository;
         this.libroRepository = libroRepository;
         this.auditoriaService = auditoriaService;
         this.properties = properties;
         this.clock = clock;
+        this.prestamoMapper = prestamoMapper;
     }
 
     @PreAuthorize("hasRole('ADMIN')") // solo ADMIN ve todos los préstamos
     @Transactional(readOnly = true)
     public List<PrestamoResponse> listar() {
         return prestamoRepository.findAllConLibro().stream()
-                .map(PrestamoResponse::desde)
+                .map(prestamoMapper::aResponse)
                 .toList();
     }
 
     @Transactional(readOnly = true)
     public PrestamoResponse buscarPorId(Long id) {
         return prestamoRepository.findById(id)
-                .map(PrestamoResponse::desde)
+                .map(prestamoMapper::aResponse)
                 .orElseThrow(() -> new PrestamoNoEncontradoException(id));
     }
 
@@ -67,7 +70,7 @@ public class PrestamoService {
         Libro libro = libroRepository.findById(libroId)
                 .orElseThrow(() -> new LibroNoEncontradoException(libroId));
         return libro.getPrestamos().stream()
-                .map(PrestamoResponse::desde)
+                .map(prestamoMapper::aResponse)
                 .toList();
     }
 
@@ -103,7 +106,7 @@ public class PrestamoService {
 
         log.info("Préstamo {} creado: libro '{}' para '{}'",
                 prestamo.getId(), libro.getTitulo(), request.socio());
-        return PrestamoResponse.desde(prestamo);
+        return prestamoMapper.aResponse(prestamo);
     }
     
     @Transactional(readOnly = true)
@@ -117,7 +120,7 @@ public class PrestamoService {
     @Transactional(readOnly = true)
     public List<PrestamoResponse> listarPorSocio(String socio) {
         return prestamoRepository.findBySocioOrderByIdAsc(socio).stream()
-                .map(PrestamoResponse::desde)
+                .map(prestamoMapper::aResponse)
                 .toList();
     }
 }
