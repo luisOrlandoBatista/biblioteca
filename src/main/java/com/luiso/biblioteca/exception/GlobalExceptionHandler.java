@@ -119,4 +119,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         problema.setTitle("Acceso denegado");
         return problema;
     }
+
+    // 503: falla un sistema externo del que dependemos, no nuestra aplicación
+    @ExceptionHandler(ServicioExternoNoDisponibleException.class)
+    public ProblemDetail manejarServicioExterno(ServicioExternoNoDisponibleException ex) {
+        log.error("Servicio externo no disponible", ex);
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(
+                HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage());
+        problema.setTitle("Servicio externo no disponible");
+        return problema;
+    }
 }

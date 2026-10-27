@@ -11,6 +11,14 @@ spring:
       ddl-auto: validate
     open-in-view: false
 
+  http:
+    clients:
+      connect-timeout: 10s  # máximo para ESTABLECER la conexión
+      read-timeout: 30s     # máximo para RECIBIR la respuesta
+    serviceclient:
+      openlibrary:          # el nombre del grupo de @ImportHttpServices
+        base-url: https://openlibrary.org
+
 biblioteca:
   nombre: Biblioteca Central
   max-prestamos: 3

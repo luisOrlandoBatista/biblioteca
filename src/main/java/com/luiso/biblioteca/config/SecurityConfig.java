@@ -47,7 +47,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,
                                 "/api/auth/login", "/api/auth/registro",
                                 "/api/auth/refresh", "/api/auth/logout").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/libros/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/libros/**", "/api/catalogo-externo").permitAll()
 
                         // Valorar: cualquier socio o admin. DEBE ir antes de la regla de ADMIN
                         // "*" representa UN segmento de la ruta: el id del libro
