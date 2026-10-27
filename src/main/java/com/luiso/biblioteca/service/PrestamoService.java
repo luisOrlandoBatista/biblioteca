@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import com.luiso.biblioteca.dto.PrestamoRequest;
 import com.luiso.biblioteca.dto.PrestamoResponse;
 import com.luiso.biblioteca.entity.Libro;
 import com.luiso.biblioteca.entity.Prestamo;
+import com.luiso.biblioteca.event.PrestamoCreadoEvent;
 import com.luiso.biblioteca.exception.LibroNoDisponibleException;
 import com.luiso.biblioteca.exception.LibroNoEncontradoException;
 import com.luiso.biblioteca.exception.LimitePrestamosExcedidoException;
@@ -36,18 +38,21 @@ public class PrestamoService {
     private final BibliotecaProperties properties; // max-prestamos, del paso 2.5
     private final Clock clock;
     private final PrestamoMapper prestamoMapper;
+    private final ApplicationEventPublisher eventos;
 
     public PrestamoService(PrestamoRepository prestamoRepository,
                            LibroRepository libroRepository,
                            AuditoriaService auditoriaService,
                            BibliotecaProperties properties,
-                           Clock clock, PrestamoMapper prestamoMapper) {
+                           Clock clock, PrestamoMapper prestamoMapper,
+                           ApplicationEventPublisher eventos) {
         this.prestamoRepository = prestamoRepository;
         this.libroRepository = libroRepository;
         this.auditoriaService = auditoriaService;
         this.properties = properties;
         this.clock = clock;
         this.prestamoMapper = prestamoMapper;
+        this.eventos = eventos;
     }
 
     @PreAuthorize("hasRole('ADMIN')") // solo ADMIN ve todos los préstamos
@@ -103,6 +108,14 @@ public class PrestamoService {
         // 5. Todo correcto: crear el préstamo con la fecha de hoy (según el Clock)
         Prestamo prestamo = prestamoRepository.save(
                 new Prestamo(libro, request.socio(), LocalDate.now(clock)));
+
+        // Anunciar lo que ha pasado. PrestamoService no sabe quién escucha, ni si escucha alguien
+        eventos.publishEvent(new PrestamoCreadoEvent(
+                prestamo.getId(),
+                libro.getId(),
+                libro.getTitulo(),
+                prestamo.getSocio(),
+                prestamo.getFechaPrestamo()));
 
         log.info("Préstamo {} creado: libro '{}' para '{}'",
                 prestamo.getId(), libro.getTitulo(), request.socio());
