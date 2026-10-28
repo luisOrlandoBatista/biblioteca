@@ -10,6 +10,12 @@ services:
       - "5432:5432"                     # puerto de tu Mac : puerto del contenedor
     volumes:
       - postgres-data:/var/lib/postgresql   # los datos se guardan en el volumen
+    
+  redis:
+    image: redis:7.4-alpine          # "alpine": versión de imagen muy ligera
+    container_name: biblioteca-redis
+    ports:
+      - "6379:6379"                  # puerto estándar de Redis
 
 volumes:
   postgres-data:                        # Docker crea y gestiona este volumen

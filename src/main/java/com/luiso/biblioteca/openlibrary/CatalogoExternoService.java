@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
@@ -26,6 +27,7 @@ public class CatalogoExternoService {
     }
 
     // @PreAuthorize("hasRole('ADMIN')") // solo quien gestiona el catálogo (paso 6.5)
+    @Cacheable(cacheNames = "openlibrary", key = "#p0.trim().toLowerCase()")
     public List<LibroExternoResponse> buscar(String titulo) {
         long inicio = System.currentTimeMillis();
         try {

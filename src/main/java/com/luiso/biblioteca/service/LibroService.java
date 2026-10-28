@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -74,6 +77,8 @@ public class LibroService {
                 pagina.getTotalPages());
     }
 
+    // Lectura: si el libro está en la caché "libros", no se consulta PostgreSQL
+    @Cacheable(cacheNames = "libros", key = "#p0")
     @Transactional(readOnly = true)
     public LibroResponse buscarPorId(Long id) {
         log.debug("Buscando libro con id {}", id);
@@ -91,6 +96,8 @@ public class LibroService {
         return libroMapper.aResponse(guardado);
     }
 
+    // Modificación: ejecuta el método y ACTUALIZA la entrada con el libro modificado
+    @CachePut(cacheNames = "libros", key = "#p0")
     @Transactional
     public LibroResponse actualizar(Long id, LibroRequest request) {
         Libro libro = obtenerLibro(id);
@@ -99,6 +106,8 @@ public class LibroService {
         return libroMapper.aResponse(libro);
     }
 
+    // Borrado: elimina la entrada, para que no se pueda leer un libro que ya no existe
+    @CacheEvict(cacheNames = "libros", key = "#p0")
     @Transactional
     public void eliminar(Long id) {
         if (!libroRepository.existsById(id)) {

@@ -5,6 +5,11 @@ spring:
   flyway:
     # En dev, además de la estructura, carga los datos de ejemplo
     locations: classpath:db/migration,classpath:db/datos-dev
+  cache:
+    type: redis
+    redis:
+      time-to-live: 10m          # TTL: cada entrada caduca a los 10 minutos
+      cache-null-values: false   # no guardar resultados null
 
 server:
   port: 8080
