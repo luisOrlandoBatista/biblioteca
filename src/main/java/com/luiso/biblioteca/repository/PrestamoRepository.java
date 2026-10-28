@@ -1,5 +1,6 @@
 package com.luiso.biblioteca.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -36,4 +37,9 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
     // Los préstamos de un socio, con su libro en la misma consulta (sin N+1, paso 4.4)
     @EntityGraph(attributePaths = "libro")
     List<Prestamo> findBySocioOrderByIdAsc(String socio);
+
+    // Préstamos sin devolver y prestados ANTES de la fecha límite.
+    // @EntityGraph: trae el libro en la misma consulta (sin N+1, paso 4.4)
+    @EntityGraph(attributePaths = "libro")
+    List<Prestamo> findByFechaDevolucionIsNullAndFechaPrestamoBefore(LocalDate limite);
 }

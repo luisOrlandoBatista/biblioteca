@@ -21,6 +21,9 @@ biblioteca:
       - http://localhost:4200 # Angular
       - http://localhost:5173 # Vite (React, Vue...)
 
+  recordatorios:
+    cron: "*/30 * * * * *"  # en desarrollo: cada 30 segundos
+
 logging:
   level:
     com.luiso.biblioteca: DEBUG

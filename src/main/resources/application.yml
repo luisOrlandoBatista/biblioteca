@@ -19,6 +19,10 @@ spring:
       openlibrary:          # el nombre del grupo de @ImportHttpServices
         base-url: https://openlibrary.org
 
+  threads:
+    virtual:
+      enabled: true
+
 biblioteca:
   nombre: Biblioteca Central
   max-prestamos: 3
@@ -28,6 +32,9 @@ biblioteca:
     emisor: biblioteca-api
     expiracion: 15m          # access token: corto
     expiracion-refresh: 7d   # refresh token: largo ("7d" = 7 días)
+  recordatorios:
+    cron: "0 0 9 * * *"     # todos los días a las 09:00
+    dias-prestamo: 14       # a partir de cuántos días se considera vencido
 
 springdoc:
   paths-to-match: /api/**
