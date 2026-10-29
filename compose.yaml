@@ -17,5 +17,11 @@ services:
     ports:
       - "6379:6379"                  # puerto estándar de Redis
 
+  kafka:
+    image: apache/kafka:4.1.0        # imagen oficial de Apache Kafka
+    container_name: biblioteca-kafka
+    ports:
+      - "9092:9092"                  # puerto estándar de Kafka
+
 volumes:
   postgres-data:                        # Docker crea y gestiona este volumen
