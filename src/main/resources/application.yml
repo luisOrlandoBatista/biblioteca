@@ -35,6 +35,29 @@ spring:
       properties:
         spring.json.trusted.packages: "com.luiso.biblioteca.*"
 
+resilience4j:
+  retry:
+    # Orden de los patrones: el reintento va DENTRO del circuit breaker (explicado abajo)
+    retry-aspect-order: 2
+    instances:
+      openlibrary:
+        max-attempts: 3                          # 1 intento + 2 reintentos
+        wait-duration: 500ms                     # espera antes del primer reintento
+        enable-exponential-backoff: true         # cada espera es el doble que la anterior: 500 ms, 1 s...
+        exponential-backoff-multiplier: 2
+        retry-exceptions:                        # SOLO se reintentan los fallos pasajeros:
+          - org.springframework.web.client.ResourceAccessException    # red, conexión, timeouts
+          - org.springframework.web.client.HttpServerErrorException   # errores 5xx del servidor
+  circuitbreaker:
+    circuit-breaker-aspect-order: 1
+    instances:
+      openlibrary:
+        sliding-window-size: 10                  # mira las últimas 10 llamadas
+        minimum-number-of-calls: 5               # no decide nada hasta tener al menos 5
+        failure-rate-threshold: 50               # si fallan el 50 % o más → se ABRE
+        wait-duration-in-open-state: 30s         # cuánto tiempo permanece abierto
+        permitted-number-of-calls-in-half-open-state: 2   # llamadas de prueba en semiabierto
+
 biblioteca:
   nombre: Biblioteca Central
   max-prestamos: 3

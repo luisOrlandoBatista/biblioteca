@@ -31,6 +31,7 @@
 		<springdoc.version>3.1.1</springdoc.version>
 		<mapstruct.version>1.6.3</mapstruct.version>
 		<spring-modulith.version>2.1.2</spring-modulith.version>
+		<resilience4j.version>2.4.0</resilience4j.version>
 	</properties>
 
 	<dependencyManagement>
@@ -166,6 +167,19 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-kafka</artifactId>
+		</dependency>
+
+		<!-- Resilience4j para Spring Boot 4: @Retry, @CircuitBreaker... -->
+		<dependency>
+			<groupId>io.github.resilience4j</groupId>
+			<artifactId>resilience4j-spring-boot4</artifactId>
+			<version>${resilience4j.version}</version>
+		</dependency>
+
+		<!-- Soporte de aspectos (AOP): lo que hace funcionar las anotaciones de Resilience4j -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aspectj</artifactId>
 		</dependency>
 	</dependencies>
 
