@@ -35,6 +35,10 @@ spring:
       properties:
         spring.json.trusted.packages: "com.luiso.biblioteca.*"
 
+  mvc:
+    async:
+      request-timeout: 1h   # una conexión del panel puede durar hasta 1 hora
+
 resilience4j:
   retry:
     # Orden de los patrones: el reintento va DENTRO del circuit breaker (explicado abajo)

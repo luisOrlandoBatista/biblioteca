@@ -23,6 +23,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import jakarta.servlet.DispatcherType;
 
 @Configuration
 @EnableMethodSecurity // activa @PreAuthorize en los métodos de los beans
@@ -44,6 +45,10 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
 
                 .authorizeHttpRequests(auth -> auth
+                        // Despachos internos de Spring (continuación de respuestas asíncronas y errores):
+                        // la petición original ya pasó la seguridad
+                        .dispatcherTypeMatchers(DispatcherType.ASYNC, DispatcherType.ERROR).permitAll()
+
                         .requestMatchers(HttpMethod.POST,
                                 "/api/auth/login", "/api/auth/registro",
                                 "/api/auth/refresh", "/api/auth/logout").permitAll()
