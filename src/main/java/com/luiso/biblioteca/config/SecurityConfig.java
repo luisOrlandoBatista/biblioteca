@@ -65,6 +65,12 @@ public class SecurityConfig {
 
                         .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers("/error").permitAll()
+                        
+                        // La salud y la info: públicas (el orquestador no tiene token)
+                        .requestMatchers("/actuator/health/**", "/actuator/info").permitAll()
+                        // El resto de Actuator: solo administradores
+                        .requestMatchers("/actuator/**").hasRole("ADMIN")
+                        
                         .anyRequest().authenticated())
 
                 .oauth2ResourceServer(oauth2 -> oauth2

@@ -56,6 +56,7 @@ resilience4j:
     circuit-breaker-aspect-order: 1
     instances:
       openlibrary:
+        register-health-indicator: true          # ← LÍNEA NUEVA
         sliding-window-size: 10                  # mira las últimas 10 llamadas
         minimum-number-of-calls: 5               # no decide nada hasta tener al menos 5
         failure-rate-threshold: 50               # si fallan el 50 % o más → se ABRE
@@ -77,3 +78,35 @@ biblioteca:
 
 springdoc:
   paths-to-match: /api/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # Lista EXPLÍCITA de endpoints expuestos por HTTP. Nunca "*" en producción
+        include: health, info, metrics, loggers, caches, scheduledtasks, flyway, circuitbreakers
+  endpoint:
+    health:
+      show-details: when-authorized   # el detalle de cada componente, solo para usuarios autorizados
+      roles: ADMIN                    # ...y solo si tienen este rol
+      probes:
+        enabled: true                 # activa /health/liveness y /health/readiness
+      group:
+        readiness:
+          include: readinessState, db, redis   # readiness SÍ depende de la BD y de Redis
+  health:
+    circuitbreakers:
+      enabled: true                   # muestra los circuitos de Resilience4j en /health
+  info:
+    env:
+      enabled: true                   # muestra en /info las propiedades info.*
+    java:
+      enabled: true                   # versión de Java
+    os:
+      enabled: true                   # sistema operativo
+
+info:
+  aplicacion:
+    nombre: API de la Biblioteca
+    descripcion: Gestión del catálogo, préstamos y socios
+    version: 1.0.0
