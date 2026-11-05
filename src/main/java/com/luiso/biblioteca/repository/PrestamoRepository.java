@@ -42,4 +42,6 @@ public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
     // @EntityGraph: trae el libro en la misma consulta (sin N+1, paso 4.4)
     @EntityGraph(attributePaths = "libro")
     List<Prestamo> findByFechaDevolucionIsNullAndFechaPrestamoBefore(LocalDate limite);
+
+    long countByFechaDevolucionIsNullAndFechaPrestamoBefore(LocalDate limite);
 }

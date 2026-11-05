@@ -8,6 +8,7 @@ import com.luiso.biblioteca.exception.ServicioExternoNoDisponibleException;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
+import io.micrometer.observation.annotation.Observed;
 
 // "Gateway" (pasarela): la ÚNICA clase que habla con Open Library.
 // Aquí se concentra toda la protección frente a sus fallos
@@ -27,6 +28,7 @@ public class OpenLibraryGateway {
 
     // "openlibrary" es el nombre de la configuración de cada patrón (en el YAML).
     // fallbackMethod: el plan B si la llamada no es posible
+    @Observed(name = "biblioteca.openlibrary.busqueda") // mide cuántas llamadas hay, cuánto tardan y cuántas fallan
     @Retry(name = "openlibrary")
     @CircuitBreaker(name = "openlibrary", fallbackMethod = "buscarFallback")
     public OpenLibraryBusquedaResponse buscar(String titulo) {

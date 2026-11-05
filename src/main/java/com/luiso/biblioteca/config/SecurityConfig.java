@@ -67,7 +67,7 @@ public class SecurityConfig {
                         .requestMatchers("/error").permitAll()
                         
                         // La salud y la info: públicas (el orquestador no tiene token)
-                        .requestMatchers("/actuator/health/**", "/actuator/info").permitAll()
+                        .requestMatchers("/actuator/health/**", "/actuator/info", "/actuator/prometheus").permitAll()
                         // El resto de Actuator: solo administradores
                         .requestMatchers("/actuator/**").hasRole("ADMIN")
                         

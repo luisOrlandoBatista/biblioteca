@@ -84,7 +84,7 @@ management:
     web:
       exposure:
         # Lista EXPLÍCITA de endpoints expuestos por HTTP. Nunca "*" en producción
-        include: health, info, metrics, loggers, caches, scheduledtasks, flyway, circuitbreakers
+        include: health, info, metrics, prometheus, loggers, caches, scheduledtasks, flyway, circuitbreakers
   endpoint:
     health:
       show-details: when-authorized   # el detalle de cada componente, solo para usuarios autorizados
@@ -104,6 +104,12 @@ management:
       enabled: true                   # versión de Java
     os:
       enabled: true                   # sistema operativo
+  metrics:                       # NUEVO (paso 10.2)
+    tags:
+      application: biblioteca
+  observations:                  # NUEVO (paso 10.2)
+    annotations:
+      enabled: true
 
 info:
   aplicacion:

@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s          # cada cuánto pregunta a la aplicación
+
+scrape_configs:
+  - job_name: biblioteca
+    metrics_path: /actuator/prometheus
+    static_configs:
+      # host.docker.internal: desde DENTRO de un contenedor, es "tu Mac".
+      # La aplicación no está en Docker: se ejecuta en tu Mac, en el puerto 8080
+      - targets: ['host.docker.internal:8080']
